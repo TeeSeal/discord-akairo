@@ -163,6 +163,19 @@ class CommandUtil {
         return this.lastResponse.edit(content, options);
     }
 
+    info(content, options) {
+        const name = this.message.member ? this.message.member.displayName : this.message.author.username;
+        return this.send(`**${name}** | ${content}`, options);
+    }
+
+    success(content, options) {
+        return this.info(`✅ ${content}`, options);
+    }
+
+    error(content, options) {
+        return this.info(`❌ ${content}`, options);
+    }
+
     /**
      * Swaps and cleans up content and options.
      * @param {string|MessageOptions|MessageEditOptions} content - Content to send.
